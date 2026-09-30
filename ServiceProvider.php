@@ -6,11 +6,12 @@ namespace Voyager\NutsAndBolts;
 use Closure;
 use Voyager\Console\ComputerConsoleInstance as Computer;
 use Voyager\Contracts\Core\FrameworkCore;
+use Voyager\Core\DefaultProviders;
 use Voyager\NutsAndBolts\DataObjects\Str;
 use Voyager\NutsAndBolts\DataObjects\Arr;
 use Voyager\Contracts\Core\CachesConfiguration;
 use Voyager\Contracts\NutsAndBolts\DeferrableProvider;
-use Voyager\Database\Instrument\Factory as ModelFactory;
+use Voyager\Database\Instrument\Factories\Factory as ModelFactory;
 
 /**
  * @property array<string, string> $bindings Every container binding that should be registered.
@@ -599,5 +600,15 @@ return [
         file_put_contents($path, $content.PHP_EOL);
 
         return true;
+    }
+
+    /**
+     * Get the default providers for a Venusian application.
+     *
+     * @return DefaultProviders
+     */
+    public static function defaultProviders(): DefaultProviders
+    {
+        return new DefaultProviders;
     }
 }

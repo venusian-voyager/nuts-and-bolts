@@ -24,8 +24,9 @@ trait CapsuleManagerTrait
     /**
      * Setup the IoC container instance.
      *
-     * @param  \Voyager\Contracts\Vessel\TheServiceContainer  $vessel
+     * @param \Voyager\Contracts\Vessel\TheServiceContainer $vessel
      * @return void
+     * @throws \ReflectionException
      */
     protected function setupContainer(TheServiceContainer $vessel): void
     {
